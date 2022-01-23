@@ -1,0 +1,15 @@
+<h2>Edit Club</h2>
+
+<app-form-club
+  [model]="model"
+  *ngIf="model"
+  [nonSelectedNationalities]="nonSelectedNationalities"
+  [selectedNationalities]="selectedNationalities"
+  [nonSelectedClubLeagues]="nonSelectedClubLeagues"
+  [selectedClubLeagues]="selectedClubLeagues"
+  [selectedPlayers]="selectedPlayers"
+  [selectedCoaches]="selectedCoaches"
+  (onSaveChanges)="saveChanges($event)"
+></app-form-club>
+
+<mat-spinner *ngIf="!model"></mat-spinner>

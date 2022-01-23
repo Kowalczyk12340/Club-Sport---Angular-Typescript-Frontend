@@ -1,0 +1,9 @@
+<h2>Edit Coach</h2>
+
+<app-form-coach
+  *ngIf="model"
+  [model]="model"
+  (onSaveChanges)="saveChanges($event)"
+></app-form-coach>
+
+<mat-spinner *ngIf="!model"></mat-spinner>

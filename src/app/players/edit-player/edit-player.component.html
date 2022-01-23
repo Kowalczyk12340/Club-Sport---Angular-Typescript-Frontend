@@ -1,0 +1,9 @@
+<h2>Edit Player</h2>
+
+<app-form-player
+  *ngIf="model"
+  [model]="model"
+  (onSaveChanges)="saveChanges($event)"
+></app-form-player>
+
+<mat-spinner *ngIf="!model"></mat-spinner>

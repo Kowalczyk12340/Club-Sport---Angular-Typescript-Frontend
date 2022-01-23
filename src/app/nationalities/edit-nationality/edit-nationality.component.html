@@ -1,0 +1,9 @@
+<h2>Edit Nationality</h2>
+
+<app-form-nationality
+  *ngIf="model"
+  [model]="model"
+  (onSaveChanges)="saveChanges($event)"
+></app-form-nationality>
+
+<mat-spinner *ngIf="!model"></mat-spinner>

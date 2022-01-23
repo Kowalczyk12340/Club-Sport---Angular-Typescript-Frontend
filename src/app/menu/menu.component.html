@@ -1,0 +1,54 @@
+<mat-toolbar color="primary">
+  <span>
+    <a class="material-icons" routerLink="" mat-button>
+      <mat-icon>sports_soccer</mat-icon> Sport Clubs
+    </a>
+  </span>
+
+  <div>
+    <a mat-button routerLink="clubs/filter">
+      <mat-icon>search</mat-icon>Search clubs</a
+    >
+  </div>
+
+  <app-authorize-view [role]="'admin'">
+    <ng-container authorized>
+      <div>
+        <a mat-button routerLink="nationalities"> Nationalities </a>
+      </div>
+
+      <div>
+        <a mat-button routerLink="players"> Players </a>
+      </div>
+
+      <div>
+        <a mat-button routerLink="coaches"> Coaches </a>
+      </div>
+
+      <div>
+        <a mat-button routerLink="clubleagues"> Club Leagues </a>
+      </div>
+
+      <div>
+        <a mat-button routerLink="clubs/create"> Create Club </a>
+      </div>
+
+      <div>
+        <a mat-button routerLink="users"> Users </a>
+      </div>
+    </ng-container>
+  </app-authorize-view>
+
+  <div class="space"></div>
+
+  <app-authorize-view>
+    <ng-container authorized>
+      <span>Hi, {{ securityService.getFieldFromJWT("email") }}</span>
+      <a mat-button (click)="securityService.logout()">Logout</a>
+    </ng-container>
+    <ng-container notAuthorized>
+      <a mat-button routerLink="login">Login</a>
+      <a mat-button routerLink="register">Register</a>
+    </ng-container>
+  </app-authorize-view>
+</mat-toolbar>

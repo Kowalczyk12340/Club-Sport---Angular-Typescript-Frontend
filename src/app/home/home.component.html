@@ -1,0 +1,22 @@
+<h2>Clubs Web Application</h2>
+
+<img class="footballJpg" src="../../football.jpg" alt="Obraz piłkarski" />
+
+<p>
+  Aplikacja webowa, która pokazuje schemat funkcjonowania klubu, wraz z ich
+  zawodnikami i trenerami, w aplikacji jest możliwość zalogowania się jako
+  użytkownik i administrator, istnieje możliwość dodawania konkretnych piłkarzy
+  do konkretnych klubów z konkretnych lig.
+</p>
+
+<app-clubs-list
+  (onDelete)="onDelete()"
+  [clubs]="clubsInLeagues"
+></app-clubs-list>
+
+<h2>Future Matches</h2>
+
+<app-clubs-list
+  (onDelete)="onDelete()"
+  [clubs]="clubsFutureReleases"
+></app-clubs-list>

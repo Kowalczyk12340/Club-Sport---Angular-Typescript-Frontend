@@ -1,0 +1,9 @@
+<h2>Edit Club League</h2>
+
+<app-club-league-form
+  *ngIf="model"
+  [model]="model"
+  (onSaveChanges)="saveChanges($event)"
+></app-club-league-form>
+
+<mat-spinner *ngIf="!model"></mat-spinner>

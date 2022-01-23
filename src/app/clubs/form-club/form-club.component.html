@@ -1,0 +1,70 @@
+<form (submit)="saveChanges()" [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Club name*</mat-label>
+    <input formControlName="clubName" matInput />
+    <mat-error>The name of club field is required</mat-error>
+  </mat-form-field>
+
+  <div class="checkbox-container">
+    <mat-checkbox formControlName="hasOwnStadium">Has Own Stadium</mat-checkbox>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <input formControlName="description" matInput />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Release Date</mat-label>
+    <input formControlName="releaseDate" matInput [matDatepicker]="picker" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <h4>Select the Poster</h4>
+  <app-input-img
+    [urlCurrentImage]="model?.poster"
+    (onImageSelected)="onImageSelected($event)"
+  ></app-input-img>
+
+  <h4>Summary</h4>
+
+  <app-input-markdown
+    [markdownContent]="model?.summary"
+    [label]="'Summary'"
+    (changeMarkdown)="changeMarkdown($event)"
+  ></app-input-markdown>
+
+  <h4>Select the Nationalities</h4>
+
+  <app-multiple-selector
+    [NonSelectedItems]="nonSelectedNationalities"
+    [SelectedItems]="selectedNationalities"
+  ></app-multiple-selector>
+
+  <h4>Select the Club Leagues</h4>
+
+  <app-multiple-selector
+    [NonSelectedItems]="nonSelectedClubLeagues"
+    [SelectedItems]="selectedClubLeagues"
+  ></app-multiple-selector>
+
+  <h4>Select the Players</h4>
+
+  <app-players-autocomplete
+    [selectedPlayers]="selectedPlayers"
+  ></app-players-autocomplete>
+
+  <h4>Select the Coaches</h4>
+
+  <app-coaches-autocomplete
+    [selectedCoaches]="selectedCoaches"
+  ></app-coaches-autocomplete>
+
+  <div>
+    <button mat-flat-button color="primary" [disabled]="form.invalid">
+      Save Changes
+    </button>
+    <a mat-stroked-button routerLink="/">Cancel</a>
+  </div>
+</form>

@@ -1,0 +1,10 @@
+<h2>Create Club</h2>
+
+<app-form-club
+  *ngIf="nonSelectedNationalities"
+  [nonSelectedNationalities]="nonSelectedNationalities"
+  [nonSelectedClubLeagues]="nonSelectedClubLeagues"
+  (onSaveChanges)="saveChanges($event)"
+></app-form-club>
+
+<mat-spinner *ngIf="!nonSelectedNationalities"></mat-spinner>

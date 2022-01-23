@@ -1,0 +1,88 @@
+<div *ngIf="club" style="display: flex">
+  <div>
+    <h2>{{ club.clubName }} ({{ releaseDate.getFullYear() }})</h2>
+
+    <mat-chip-list>
+      <mat-chip
+        [routerLink]="['/clubs/filter']"
+        [queryParams]="{ nationalityId: nationality.id }"
+        *ngFor="let nationality of club.nationalities"
+      >
+        {{ nationality.name }}
+      </mat-chip>
+    </mat-chip-list>
+    | {{ releaseDate.toDateString() }} | Average: {{ club.averageVote }} | Your
+    vote:
+    <app-rating
+      (onRating)="onRating($event)"
+      [selectedRate]="club.userVote"
+    ></app-rating>
+
+    <div style="display: flex">
+      <span style="display: inline-block; margin-right: 1rem">
+        <img [src]="club.poster" style="width: 225px; height: 315px" />
+      </span>
+      <div *ngIf="club.description">
+        <iframe
+          width="560"
+          height="315"
+          [src]="descriptionUrl"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+    </div>
+
+    <div style="margin-top: 1rem">
+      <h3>Summary</h3>
+      <div>
+        <markdown [data]="club.summary" ngPreserveWhitespaces></markdown>
+      </div>
+    </div>
+
+    <div style="margin-top: 1rem">
+      <h3>Players</h3>
+      <div style="display: flex; flex-direction: column">
+        <div *ngFor="let player of club.players" style="margin-bottom: 2px">
+          <img
+            [src]="player.picture"
+            style="width: 50px; vertical-align: middle"
+          />
+          <span style="display: inline-block; width: 200px; margin-left: 1rem">
+            {{ player.name }}
+          </span>
+          <span style="display: inline-block; width: 45px">...</span>
+          <span>{{ player.position }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 1rem">
+      <h3>Coaches</h3>
+      <div style="display: flex; flex-direction: column">
+        <div *ngFor="let coach of club.coaches" style="margin-bottom: 2px">
+          <img
+            [src]="coach.picture"
+            style="width: 50px; vertical-align: middle"
+          />
+          <span style="display: inline-block; width: 200px; margin-left: 1rem">
+            {{ coach.name }}
+          </span>
+          <span style="display: inline-block; width: 45px">...</span>
+          <span>{{ coach.license }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="padding-left: 1rem; position: relative; width: 100%"
+    *ngIf="coordinates.length > 0"
+  >
+    <h2>Displaying in the following club leagues</h2>
+    <app-map [initialCoordinates]="coordinates" [editMode]="false"></app-map>
+  </div>
+</div>
+
+<mat-spinner *ngIf="!club"></mat-spinner>

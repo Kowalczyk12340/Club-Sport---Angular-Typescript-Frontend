@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* html, body { height: 100%; } */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ecdade;
+  box-sizing: border-box;
+  font-weight: bold;
+  font-family: "Oswald", sans-serif;
+}
+
+#break {
+  height: 25px;
+}
+
+.mat-focus-indicator .mat-flat-button .mat-button-base .mat-primary {
+  background-color: #a13e17;
+  color: #fff;
+}
+
+.mat-flat-button.mat {
+  background: #a13e17;
+  color: #fff;
+}
+
+.mat-toolbar.mat-primary {
+  background: #a13e17;
+  color: #fff;
+}
+
+.mat-button.mat-primary {
+  background: #a13e17;
+  color: #fff;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+  background-color: #a13e17;
+  color: white;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.table-index {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.table-index a {
+  margin-right: 1rem;
+}
