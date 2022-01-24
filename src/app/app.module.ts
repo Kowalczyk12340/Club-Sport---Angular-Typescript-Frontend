@@ -14,6 +14,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import 'leaflet/dist/images/marker-shadow.png';
 import 'leaflet/dist/images/marker-icon-2x.png';
 import '../football.jpg';
+import '../football1.jpg';
 import { MaterialModule } from './material/material.module';
 import { MenuComponent } from './menu/menu.component';
 import { RatingComponent } from './utilities/rating/rating.component';

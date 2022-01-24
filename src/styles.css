@@ -4,7 +4,6 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #ecdade;
   box-sizing: border-box;
   font-weight: bold;
   font-family: "Oswald", sans-serif;
@@ -14,23 +13,39 @@ body {
   height: 25px;
 }
 
+.mat-flat-button.mat-warn,
+.mat-raised-button.mat-warn,
+.mat-fab.mat-warn,
+.mat-mini-fab.mat-warn {
+  background-color: #d44d44;
+  color: #fff;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+  background-color: #044c58;
+  color: #fff;
+}
+
 .mat-focus-indicator .mat-flat-button .mat-button-base .mat-primary {
-  background-color: #a13e17;
+  background-color: #72cc48;
   color: #fff;
 }
 
 .mat-flat-button.mat {
-  background: #a13e17;
+  background: #72cc48;
   color: #fff;
 }
 
 .mat-toolbar.mat-primary {
-  background: #a13e17;
+  background: #72cc48;
   color: #fff;
 }
 
 .mat-button.mat-primary {
-  background: #a13e17;
+  background: #72cc48;
   color: #fff;
 }
 
@@ -39,7 +54,7 @@ footer {
   bottom: 0;
   height: 30px;
   width: 100%;
-  background-color: #a13e17;
+  background-color: #72cc48;
   color: white;
   font-weight: bold;
   margin: 0 auto;

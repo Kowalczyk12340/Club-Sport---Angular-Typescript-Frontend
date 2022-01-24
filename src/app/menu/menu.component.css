@@ -1,8 +1,10 @@
 mat-toolbar {
-  position: sticky;
-  position: -webkit-sticky;
+  overflow: hidden;
+  position: fixed;
+  position: -webkit-fixed;
   top: 0;
   z-index: 1000;
+  max-width: 100%;
 }
 
 app-authorize-view {
@@ -10,5 +12,23 @@ app-authorize-view {
 }
 
 .space {
-  flex: 0.8 0.8 auto;
+  flex: 0.7 0.7 auto;
+}
+
+@media (max-width: 880) {
+  mat-toolbar {
+    overflow: hidden;
+    position: relative;
+    border-radius: 0;
+    display: block;
+    top: 0;
+  }
+
+  app-authorize-view {
+    display: block;
+  }
+
+  .space {
+    flex: 0.2 0.2 auto;
+  }
 }
